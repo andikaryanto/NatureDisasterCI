@@ -35,6 +35,10 @@ class G_sitestatus extends CI_Controller
         redirect('sitestatus');
     }
 
+    public function maintenance(){
+        $this->load->view('forbidden/maintenance');
+    }
+
     private function loadview($viewName, $data)
 	{
 		$this->paging->load_header();

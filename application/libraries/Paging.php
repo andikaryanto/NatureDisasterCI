@@ -126,13 +126,14 @@ class Paging {
         $CI->load->model(array('Login_model', 'Gsitestatus_model'));
         if(isset($_SESSION['userdata']))
         {
-            // $sitestatus = $CI->Gsitestatus_model->get_alldata();
-            // if($sitestatus && $sitestatus->Status === 2){
-
-            // }
-            // else{
-            //     $CI->load->view('forbidden/maintenance');
-            // }
+            $sitestatus = $CI->Gsitestatus_model->get_alldata();
+            if(isset($sitestatus) && $sitestatus->Status == 2){
+                //echo json_encode($sitestatus);
+            }
+            else{
+                //echo json_encode("aaa");
+                //redirect('maintenance');
+            }
         }
         else
         {

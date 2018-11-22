@@ -184,6 +184,7 @@ $route['treceiveitem/delete/(:num)'] = 't_receiveitem/delete/$1';
 
 
 $route['sitestatus'] = 'g_sitestatus';
+$route['maintenance'] = 'g_sitestatus/maintenance';
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
 $route['api/mdisaster/(:any)/(:any)'] = 'api_mdisaster/get_disaster/$1/$2';
