@@ -1,0 +1,23 @@
+<?php
+$lang['err_msg_name_exist'] = "Name Exist !";
+$lang['err_msg_name_can_not_null'] = "Name Cannot be null";
+$lang['err_msg_groupname_can_not_null'] = "Group Name Cannot be null";
+$lang['err_msg_cardno_exist'] = "Card No. Exist !";
+$lang['err_latitude_can_not_null'] = "Latitude Cannot be null";
+$lang['err_longitude_can_not_null'] = "Longitude Cannot be null";
+$lang['err_disaster_can_not_null'] = "Disaster cannot be null";
+$lang['err_wrong_password'] = "Wrong Password!";
+$lang['err_wrong_confirmed_password'] = "Password not match!";
+$lang['err_msg_uom_can_not_null'] = "UoM Cannot be null";
+$lang['err_msg_province_can_not_null'] = "Province Cannot be null";
+$lang['err_msg_city_can_not_null'] = "City Cannot be null";
+$lang['err_msg_subcity_can_not_null'] = "Subcity Cannot be null";
+$lang['err_msg_groupuser_can_not_null'] = "Group User Cannot be null";
+$lang['err_msg_password_can_not_null'] = "Password Cannot be null";
+$lang['err_msg_convertion_exist'] = "Unit convertion exist";
+$lang['err_msg_fromuom_can_not_null'] = "From UoM Cannot be null";
+$lang['err_msg_touom_can_not_null'] = "To UoM Cannot be null";
+$lang['err_msg_qty_exist'] = "Qty Cannot be null";
+$lang['err_msg_ordernumber_can_not_null'] = "Order Number Cannot be null";
+$lang['err_msg_fromtouom_can_not_null'] = "From Uom and To Uom cannot be the same";
+$lang['err_msg_receivedate_cannot_null'] = "Receive Date cannot be null";
