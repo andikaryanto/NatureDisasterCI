@@ -66,7 +66,7 @@
                       <h4><?php echo $resource['res_uomconversion']?></h4> 
                     </div>
                     <div class = "col-lg-2 icon-custom-table-header">
-                      <a id = "information" class = "icon-custom-table-detail" href="#"><i class="fa fa-info-circle"></i></a>
+                      <a id = "information" class = "icon-custom-table-detail" href="javascript:void(0);"><i class="fa fa-info-circle"></i></a>
                       <a class = "icon-custom-table-detail" href="#" data-toggle="collapse" data-target="#collapseUomConvertion"><i class="fa fa-plus"></i></a>
                     </div>
                   </div>

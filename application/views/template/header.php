@@ -96,6 +96,16 @@
             <li><a href="<?php echo base_url('muser');?>"><i class="icon-user"></i><?php echo $resource['res_user']?></a></li>
           </ul>
         </div>
+        
+        <?php if($_SESSION['userdata']['username'] == "superadmin") { ?>
+        
+        <div class="admin-menu">
+          <h5 class="sidenav-heading">Sites</h5>
+          <ul id="side-admin-menu" class="side-menu list-unstyled"> 
+            <li><a href="<?php echo base_url('sitestatus');?>"><i class="icon-bars"></i><?php echo $resource['res_sitestatus']?></a></li>
+        </div>
+        <?php }?>
+          
       </div>
     </nav>
     <div class="page">

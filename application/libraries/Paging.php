@@ -39,6 +39,7 @@ class Paging {
         $data["marriagestatus"] = 4;
         $data["familystatus"] = 5;
         $data["citizenship"] = 6;
+        $data["sitestatus"] = 7;
         return $data;
     }
 
@@ -108,6 +109,7 @@ class Paging {
         $resource['res_uom'] = $CI->lang->line('ui_uom');
         $resource['res_master_uom'] = $CI->lang->line('ui_master_uom');
         $resource['res_warehouse'] = $CI->lang->line('ui_warehouse');
+        $resource['res_sitestatus'] = $CI->lang->line('ui_sitestatus');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
         if($_SESSION['language']['language'] === 'indonesia'){
@@ -121,10 +123,16 @@ class Paging {
     {
         $CI =& get_instance();
         $CI->load->library('session');
-        $CI->load->model('Login_model');
+        $CI->load->model(array('Login_model', 'Gsitestatus_model'));
         if(isset($_SESSION['userdata']))
         {
-            
+            // $sitestatus = $CI->Gsitestatus_model->get_alldata();
+            // if($sitestatus && $sitestatus->Status === 2){
+
+            // }
+            // else{
+            //     $CI->load->view('forbidden/maintenance');
+            // }
         }
         else
         {
@@ -132,10 +140,11 @@ class Paging {
         }
     }
 
-    public function set_data_page_add($resource, $model = null)
+    public function set_data_page_add($resource, $model = null, $enums = null)
     {
         $data['resource'] = $resource;
         $data['model'] = $model;
+        $data['enums'] = $enums;
         return $data;
     }
 

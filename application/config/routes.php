@@ -181,6 +181,9 @@ $route['treceiveitem/addsave'] = 't_receiveitem/addsave';
 $route['treceiveitem/edit/(:num)'] = 't_receiveitem/edit/$1';
 $route['treceiveitem/editsave'] = 't_receiveitem/editsave';
 $route['treceiveitem/delete/(:num)'] = 't_receiveitem/delete/$1';
+
+
+$route['sitestatus'] = 'g_sitestatus';
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
 $route['api/mdisaster/(:any)/(:any)'] = 'api_mdisaster/get_disaster/$1/$2';

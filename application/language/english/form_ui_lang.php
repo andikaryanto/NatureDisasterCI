@@ -104,6 +104,9 @@ $lang['ui_warehouse'] = "Warehouse";
 $lang['ui_receiveitem'] = "Receive Item";
 $lang['ui_receivedate'] = "Receive Date";
 $lang['ui_receiveno'] = "Receive No.";
+$lang['ui_sitestatus'] = "Site Status";
+$lang['ui_live'] = "Live";
+$lang['ui_maintenance'] = "Maintenance";
 
 
 $lang['msg_orderuomconvertion'] = "Please order Unit Convertion from biggest to smallest unit. for example : Box to Pack (order number = 1), Pack to Pcs (order number = 2) and go on";
