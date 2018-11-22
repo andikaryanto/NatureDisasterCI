@@ -6,7 +6,6 @@
           </ul>
         </div>
     </div>
-    <!-- change test -->
       <section class="forms">
         <div class="container-fluid">
           <!-- Page Header-->
