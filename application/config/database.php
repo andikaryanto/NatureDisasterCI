@@ -73,25 +73,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'naturedisaster';
 $query_builder = TRUE;
 
-$db['naturedisaster'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'naturedisaster',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => FALSE,//(ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	//'dbcollat' => 'latin1_swedish_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
+if(ENVIRONMENT === 'production'){
+	$db['naturedisaster'] = array(
+		'dsn'	=> '',
+		'hostname' => 'localhost',
+		'username' => 'id6590189_naturedisaster',
+		'password' => 'ratrace182',
+		'database' => 'id6590189_naturedisaster',
+		'dbdriver' => 'mysqli',
+		'dbprefix' => '',
+		'pconnect' => FALSE,
+		'db_debug' => FALSE,//(ENVIRONMENT !== 'production'),
+		'cache_on' => FALSE,
+		'cachedir' => '',
+		'char_set' => 'utf8',
+		'dbcollat' => 'utf8_general_ci',
+		//'dbcollat' => 'latin1_swedish_ci',
+		'swap_pre' => '',
+		'encrypt' => FALSE,
+		'compress' => FALSE,
+		'stricton' => FALSE,
+		'failover' => array(),
+		'save_queries' => TRUE
+	);
+}
+else if(ENVIRONMENT === 'development'){
+	$db['naturedisaster'] = array(
+		'dsn'	=> '',
+		'hostname' => 'localhost',
+		'username' => 'root',
+		'password' => '',
+		'database' => 'naturedisaster',
+		'dbdriver' => 'mysqli',
+		'dbprefix' => '',
+		'pconnect' => FALSE,
+		'db_debug' => TRUE,//(ENVIRONMENT !== 'production'),
+		'cache_on' => FALSE,
+		'cachedir' => '',
+		'char_set' => 'utf8',
+		'dbcollat' => 'utf8_general_ci',
+		//'dbcollat' => 'latin1_swedish_ci',
+		'swap_pre' => '',
+		'encrypt' => FALSE,
+		'compress' => FALSE,
+		'stricton' => FALSE,
+		'failover' => array(),
+		'save_queries' => TRUE
+	);
+}
