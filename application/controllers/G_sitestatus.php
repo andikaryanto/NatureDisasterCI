@@ -13,7 +13,7 @@ class G_sitestatus extends CI_Controller
 
     public function index(){
         $form = $this->paging->get_form_name_id();
-        if($this->Ggroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_animal'],'Read'))
+        if($this->Ggroupuser_model->is_permitted(9999,9999,'Read')) // just superadmin can open
         {
             $object = $this->Gsitestatus_model->get_alldata();
             $model = $this->Gsitestatus_model->create_object($object->Id, $object->Status);
@@ -22,6 +22,9 @@ class G_sitestatus extends CI_Controller
             $enums['sitestatusenum'] = $this->Genum_model->get_data_by_id($enum['sitestatus']);
             $data =  $this->paging->set_data_page_add($resource, $model, $enums);
             $this->loadview('g_sitestatus/index', $data);
+        }
+        else {
+            redirect('home');
         }
     }
 
@@ -33,10 +36,6 @@ class G_sitestatus extends CI_Controller
         $successmsg = $this->paging->get_success_message();
         $this->session->set_flashdata('success_msg', $successmsg);
         redirect('sitestatus');
-    }
-
-    public function maintenance(){
-        $this->load->view('forbidden/maintenance');
     }
 
     private function loadview($viewName, $data)

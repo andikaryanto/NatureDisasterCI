@@ -9,6 +9,8 @@ class Home extends CI_Controller
         $this->load->library('session');
         $this->load->library('paging');
         $this->lang->load('form_ui', $_SESSION['language']['language']);
+        
+        //$this->paging->is_session_set();
 
     }
 

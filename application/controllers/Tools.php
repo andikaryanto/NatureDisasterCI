@@ -116,7 +116,7 @@ class $name extends Seeder {
     private \$table = 'users';
 
     public function run() {
-        \$this->db->truncate(\$this->table);
+        //\$this->db->truncate(\$this->table);
 
         //seed records manually
         \$data = [

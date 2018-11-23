@@ -49,4 +49,6 @@ class Gsitestatus_model extends CI_Model {
 
         return $resource;
     }
+
+    
 }

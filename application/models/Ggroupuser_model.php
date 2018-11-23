@@ -215,7 +215,7 @@ class Ggroupuser_model extends CI_Model {
         return $permitted;
     }
 
-    public function is_permitted($groupid, $formid, $role)
+    public function is_permitted($groupid = null, $formid = null, $role = null)
     {
         $permitted = false;
         if($this->paging->is_superadmin($_SESSION['userdata']['username'])
@@ -224,9 +224,6 @@ class Ggroupuser_model extends CI_Model {
         {
             $permitted = true;
         }
-
-        
-
         return $permitted;
     }
 

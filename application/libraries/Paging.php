@@ -71,6 +71,16 @@ class Paging {
         return $resource;
     }
 
+    public function set_resources_maintenance_page()
+    {
+        $CI =& get_instance();
+        $CI->load->library('session');
+        $CI->lang->load('form_ui', $_SESSION['language']['language']);
+
+        $resource['res_page_maintenance'] = $CI->lang->line('ui_page_maintenance');
+        return $resource;
+    }
+
     private function set_resources_header_page()
     {
         
@@ -124,21 +134,26 @@ class Paging {
         $CI =& get_instance();
         $CI->load->library('session');
         $CI->load->model(array('Login_model', 'Gsitestatus_model'));
-        if(isset($_SESSION['userdata']))
-        {
-            $sitestatus = $CI->Gsitestatus_model->get_alldata();
-            if(isset($sitestatus) && $sitestatus->Status == 2){
-                //echo json_encode($sitestatus);
+        $sitestatus = $CI->Gsitestatus_model->get_alldata();
+        if(isset($sitestatus) && $sitestatus->Status == 2){
+            //echo json_encode($sitestatus);
+            if(isset($_SESSION['userdata']))
+            {
+                //redirect('home');
             }
-            else{
-                //echo json_encode("aaa");
-                //redirect('maintenance');
+            else
+            {
+                redirect('login');
             }
         }
-        else
-        {
-            redirect('login');
+        else{
+            //echo json_encode($sitestatus);
+            //echo json_encode("aaa");
+            //$data['resource'] = $CI->paging->set_resources_forbidden_page();
+            if(isset($_SESSION['userdata']) && $_SESSION['userdata']['username'] !== "superadmin")
+                redirect('maintenance');
         }
+        
     }
 
     public function set_data_page_add($resource, $model = null, $enums = null)

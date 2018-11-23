@@ -43,8 +43,8 @@
             <div class="col-12">
               <div class="wrapper count-title d-flex">
                 <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase"><?php ?></strong><span><?php ?></span>
-                  <div class="count-number">XXXXXXXXXXX</div>
+                <div class="name"><strong class="text-uppercase"><?php echo $resource['res_page_maintenance']?></strong><span><?php ?></span>
+                  <div class="count-number"></div>
                 </div>
               </div>
             </div>

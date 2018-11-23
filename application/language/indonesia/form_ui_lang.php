@@ -105,6 +105,7 @@ $lang['ui_receiveno'] = "No. Penerimaan";
 $lang['ui_sitestatus'] = "Status Laman";
 $lang['ui_live'] = "Berjalan";
 $lang['ui_maintenance'] = "Perbaikan";
+$lang['ui_page_maintenance'] = "Laman web sedang dalam perbaikan, kami akan menginformasikan jika perbaikan telah selesai.";
 
 $lang['msg_orderuomconvertion'] = "Urutkan Perubahan ukuran dari paling BESAR ke KECIL. contoh : Box ke Pack (nomor urut = 1), Pack ke Pcs (nomor urut = 2) dan seterusnya";
 

@@ -107,6 +107,7 @@ $lang['ui_receiveno'] = "Receive No.";
 $lang['ui_sitestatus'] = "Site Status";
 $lang['ui_live'] = "Live";
 $lang['ui_maintenance'] = "Maintenance";
+$lang['ui_page_maintenance'] = "Website is under maintenance, We will inform to you if maintanance is finished.";
 
 
 $lang['msg_orderuomconvertion'] = "Please order Unit Convertion from biggest to smallest unit. for example : Box to Pack (order number = 1), Pack to Pcs (order number = 2) and go on";
