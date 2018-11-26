@@ -192,9 +192,11 @@
                       <i class="fa fa-edit"></i>
                       <span><?php echo $resource['res_changepassword']?></span></a>
                     </li>
-                    <li><a rel="nofollow" class="dropdown-item" href ="<?php echo base_url('login/dologout');?>"> 
-                      <i class="fa fa-sign-out"></i>
-                      <span><?php echo $resource['res_logout']?></span></a>
+                    <li>
+                      <a rel="nofollow" class="dropdown-item" href ="<?php echo base_url('login/dologout');?>"> 
+                        <i class="fa fa-sign-out"></i>
+                        <span><?php echo $resource['res_logout']?></span>
+                      </a>
                     </li>
                     
                   </ul>

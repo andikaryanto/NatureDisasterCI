@@ -92,7 +92,7 @@ class M_user extends CI_Controller
             $modeltabel['ion'] = $date;
             $modeltabel['iby'] = $_SESSION['userdata']['username'];
     
-            $this->Muser_model->save_data($model);
+            $this->Muser_model->save_data($modeltabel);
             $successmsg = $this->paging->get_success_message();
             $this->session->set_flashdata('success_msg', $successmsg);
             redirect('muser');
