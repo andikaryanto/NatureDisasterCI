@@ -10,6 +10,7 @@
     <!-- bootstrapdashboard -->
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/vendor/bootstrap/css/bootstrap.min.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.default.premium.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrapdashboardcustom.css');?>">
     <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.css');?>"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/bootstrap-datepicker3.css');?>">
@@ -25,7 +26,7 @@
     <!-- Custom Scrollbar-->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');?>">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.default.css');?>" id="theme-stylesheet">
+    <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.default.css');?>" id="theme-stylesheet"> -->
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/custom.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/file/component.css');?>">
