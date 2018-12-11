@@ -38,22 +38,48 @@ class Tools extends CI_Controller {
 
     public function migrate($version = null) {
         $this->load->library('migration');
+        $this->create_version_history();
+        $versions = $this->read_version();
+        $prevVersion = "";
+        $countMigrate = 0;
+        foreach($versions as $ver){
+            
+            if($this->is_exist_version_history($ver) < 1){
+                if($this->must_downgrade_version($ver) > 0){
+                    $this->downgrade_version($prevVersion);
+                }
 
-        if ($version != null) {
-            if ($this->migration->version($version) === FALSE) {
-                show_error($this->migration->error_string());
-            } else {
-                echo "Migrations run successfully" . PHP_EOL;
+                if ($this->migration->version($ver) === FALSE) {
+                    show_error($this->migration->error_string());
+                } else {
+                    echo "Migrations run successfully " . $ver . PHP_EOL;
+                    
+                    $migrationVersion = array("Version" => $ver);
+                    $this->db->insert("g_versionhistory", $migrationVersion);
+                }
+                $countMigrate++;
             }
-
-            return;
+            $prevVersion = $ver;
         }
+        echo "Migrations count (" . $countMigrate .")" . PHP_EOL;
 
-        if ($this->migration->latest() === FALSE) {
-            show_error($this->migration->error_string());
-        } else {
-            echo "Migrations run successfully" . PHP_EOL;
-        }
+
+
+        // if ($version != null) {
+        //     if ($this->migration->version($version) === FALSE) {
+        //         show_error($this->migration->error_string());
+        //     } else {
+        //         echo "Migrations run successfully" . PHP_EOL;
+        //     }
+
+        //     return;
+        // }
+
+        // if ($this->migration->latest() === FALSE) {
+        //     show_error($this->migration->error_string());
+        // } else {
+        //     echo "Migrations run successfully" . PHP_EOL;
+        // }
     }
 
     public function seeder($name) {
@@ -309,6 +335,90 @@ class $name extends CI_Model {
         fclose($my_model);
 
         echo "$path model has successfully been created." . PHP_EOL;
+    }
+
+    public function read_version(){
+        $path = APPPATH . "database/migrations/";
+        $version = array();
+        if ($handle = opendir($path)) {
+
+            while (false !== ($entry = readdir($handle))) {
+        
+                if ($entry != "." && $entry != "..") {
+                    array_push($version, explode("_", $entry)[0]);
+                }
+            }
+        
+            closedir($handle);
+        }
+        return $version;
+    }
+
+    protected function must_downgrade_version($version){
+        $query = $this->db->get("migrations")->row();
+        if($query->version > $version){
+            $this->delete_version_history($version);
+            return true;
+        }
+        return false;
+    }
+
+    protected function downgrade_version($version){
+        $this->db->set('version', $version);
+        $this->db->update('migrations');
+    }
+
+    protected function delete_version_history($version){
+        $this->db->where('Version > ', $version);
+        $this->db->delete('g_versionhistory');
+    }
+
+    public function is_exist_version_history($version){
+        $isExist = false;
+        
+        if($version == "20181126000000"){
+            $isExist = true;
+        } else {
+            $this->db->select('*');
+            $this->db->from('g_versionhistory');
+            $this->db->where('Version', $version);
+            $query = $this->db->get()->row();
+            if($query){
+                $isExist = true;
+            }
+        }
+        return $isExist;
+    }
+
+    protected function is_exist_data_version_hitory(){        
+        $this->db->select('*');
+        $this->db->from('g_versionhistory');
+        $query = $this->db->get()->result();
+        if($query){
+            return true;
+        }
+        return false;
+    }
+
+    protected function create_version_history(){
+        if (!$this->db->table_exists('g_versionhistory') )
+        {
+            $this->load->helper('db_helper');
+            $this->dbforge->add_field(array(
+                'Id' => array(
+                    'type' => 'INT',
+                    'constraint' => 11,
+                    'auto_increment' => TRUE
+                ),
+                'Version' => array(
+                    'type' => 'varchar',
+                    'constraint' => 100
+                )
+    
+            ));
+            $this->dbforge->add_key('Id', TRUE);
+            $this->dbforge->create_table('g_versionhistory');
+        }
     }
 
 }

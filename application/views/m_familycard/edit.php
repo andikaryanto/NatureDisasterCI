@@ -968,7 +968,7 @@
   .on('changeDate', function(e) {
         // `e` here contains the extra attributes
         $('#dateofbirth').val(e.date.toLocaleDateString("id-ID"))
-    });
+  });
   
 
   function edit_familycarddetail(id)
